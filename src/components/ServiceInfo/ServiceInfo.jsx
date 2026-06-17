@@ -10,7 +10,7 @@ const ServiceInfo = ({ service, subscribe }) => {
     event.currentTarget.src = noImageLoad;
   };
   const location = useLocation();
-  const currentPage = location.pathname.split('/')[1];
+  const hideSubscribeButton = location.pathname.includes('/subscription');
 
   return (
     <div className={styles.serviceInfo}>
@@ -31,7 +31,7 @@ const ServiceInfo = ({ service, subscribe }) => {
           type="button"
           className={styles.sub}
           onClick={() => subscribe(service.id)}
-          hidden={currentPage === 'subscription' ? true : false}
+          hidden={hideSubscribeButton}
         >
           Subscribe
         </button>

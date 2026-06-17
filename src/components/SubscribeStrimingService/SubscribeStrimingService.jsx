@@ -17,12 +17,13 @@ const SubscribeStrimingService = () => {
   const [shows, setShows] = useState([]);
   const [page, setPage] = useState(1);
   const networkName = service.name;
-  const { networks, setNetworks } = useContext(NetworkContext);
+  const { setNetworks } = useContext(NetworkContext);
 
   const subscribe = id => {
-    setNetworks(
-      networks,
-      (networks.find(network => network.id === id).sub = true)
+    setNetworks(prev =>
+      prev.map(network =>
+        network.id === id ? { ...network, sub: true } : network
+      )
     );
     Notify.success(`You subscribe to ${networkName}!`);
   };

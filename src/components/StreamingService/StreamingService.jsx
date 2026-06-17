@@ -1,6 +1,6 @@
 import Navigation from 'components/Navigation/Navigation';
 import { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useParams, useHistory } from 'react-router';
 import { getServiceInfo } from 'Utils/MovieAPI';
 import styles from './StreamingService.module.scss';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
@@ -13,19 +13,22 @@ import GoBackButton from 'components/GoBackButton/GoBackButton';
 
 const StreamingService = () => {
   const { serviceId } = useParams();
+  const history = useHistory();
   const [service, setService] = useState({});
   const [shows, setShows] = useState([]);
   const [page, setPage] = useState(1);
   const networkName = service.name;
 
   ///
-  const { networks, setNetworks } = useContext(NetworkContext);
+  const { setNetworks } = useContext(NetworkContext);
   const subscribe = id => {
-    setNetworks(
-      networks,
-      (networks.find(network => network.id === id).sub = true)
+    setNetworks(prev =>
+      prev.map(network =>
+        network.id === id ? { ...network, sub: true } : network
+      )
     );
     Notify.success(`You subscribe to ${networkName}!`);
+    history.push(`/subscription/${id}`);
   };
   //
 
