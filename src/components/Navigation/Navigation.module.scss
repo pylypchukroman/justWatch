@@ -1,0 +1,43 @@
+.nav {
+  padding: 20px 40px;
+  height: 30px;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link {
+  font-size: 20px;
+  margin-left: 15px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.5s;
+  &:hover {
+    color: red;
+    transform: scale(1.05);
+  }
+}
+.activeClass {
+  color: red;
+}
+.user {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    color: white;
+    font-weight: 600;
+  }
+}
+.logo {
+  transition: all 0.5s;
+  &:hover {
+    transform: scale(1.05);
+  }
+}

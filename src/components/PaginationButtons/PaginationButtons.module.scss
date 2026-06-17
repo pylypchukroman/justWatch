@@ -1,0 +1,19 @@
+.buttonsWrapper {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.paginationBtn {
+  width: 180px;
+  padding: 20px 40px;
+  margin-right: 15px;
+  box-shadow: rgb(255 255 255) 0px 3px 8px;
+  border: none;
+  border-radius: 10px;
+  transition: all 0.5s;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+  }
+}

@@ -1,0 +1,44 @@
+.serviceInfo {
+  padding: 20px 35px;
+  margin-bottom: 40px;
+}
+.serviceInfoText {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+}
+.imageWrapper {
+  border-radius: 20px;
+  width: 200px;
+  height: 150px;
+  background-color: white;
+  padding: 0 20px;
+}
+.img {
+  display: block;
+  width: 200px;
+  height: 150px;
+  object-fit: contain;
+}
+.serviceInfoText {
+  p {
+    margin-right: 20px;
+    color: white;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+.sub {
+  margin-left: 20px;
+  padding: 5px 20px;
+  font-size: 18px;
+  border: none;
+  transition: all 0.5s;
+  cursor: pointer;
+  border-radius: 10px;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
