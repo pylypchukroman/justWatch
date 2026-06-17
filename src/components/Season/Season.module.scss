@@ -1,9 +1,14 @@
+@use '../../styles/breakpoints' as *;
+
 .wrapper {
-  background-color: black;
-  min-height: 100vh;
+  background-color: var(--color-bg);
+  min-height: calc(100vh - var(--nav-height));
 }
 
 .title {
-  margin-bottom: 40px;
-  color: white;
+  margin-bottom: clamp(24px, 4vw, 40px);
+  color: var(--color-text);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 700;
+  padding: 0 var(--container-padding);
 }

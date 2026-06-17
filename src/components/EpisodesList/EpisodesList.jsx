@@ -4,20 +4,41 @@ import { useEffect, useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 
-const EpisodesList = ({ episodes }) => {
+const EpisodesList = ({ episodes, streamingService }) => {
   const imageOnErrorHandler = event => {
     event.currentTarget.src = noImageLoad;
   };
   const [watches, setWatches] = useState(1);
+
   useEffect(() => {
     const number = Math.floor(Math.random() * 100);
     setWatches(number);
   }, []);
 
-  const onWatchBtbClick = () => {
+  const onWatchBtnClick = () => {
     setWatches(prev => prev + 1);
+
+    if (streamingService?.homepage) {
+      toast.info(
+        <>
+          You can watch this series on the official web page.{' '}
+          <a
+            href={streamingService.homepage}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {streamingService.name}
+          </a>
+        </>
+      );
+      return;
+    }
+
+    toast.info('You can watch this series on the official web page.');
   };
+
   return (
     <ul className={styles.list}>
       {episodes &&
@@ -44,7 +65,7 @@ const EpisodesList = ({ episodes }) => {
               <button
                 type="button"
                 className={styles.watchBtn}
-                onClick={onWatchBtbClick}
+                onClick={onWatchBtnClick}
               >
                 Watch
               </button>
@@ -57,6 +78,10 @@ const EpisodesList = ({ episodes }) => {
 
 EpisodesList.propTypes = {
   episodes: PropTypes.array,
+  streamingService: PropTypes.shape({
+    name: PropTypes.string,
+    homepage: PropTypes.string,
+  }),
 };
 
 export default EpisodesList;

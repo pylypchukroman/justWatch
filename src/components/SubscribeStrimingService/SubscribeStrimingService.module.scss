@@ -1,6 +1,18 @@
+@use '../../styles/breakpoints' as *;
+
 .serials {
-  padding: 1px 35px;
+  padding: clamp(8px, 2vw, 16px) var(--container-padding);
 }
+
 .wrapper {
-  background-color: black;
+  background-color: var(--color-bg);
+  min-height: calc(100vh - var(--nav-height));
+
+  h2 {
+    color: var(--color-text);
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 700;
+    padding: clamp(16px, 3vw, 24px) var(--container-padding) 0;
+    letter-spacing: -0.01em;
+  }
 }

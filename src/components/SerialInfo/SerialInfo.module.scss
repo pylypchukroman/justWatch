@@ -1,44 +1,81 @@
+@use '../../styles/breakpoints' as *;
+
 .info {
-  padding: 20px 40px;
+  padding: clamp(16px, 4vw, 32px) var(--container-padding);
   display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @include md {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }
+
 .imgWrapper {
-  width: 300px;
-  height: 450px;
-  margin-right: 40px;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  flex-shrink: 0;
+
+  @include md {
+    margin: 0;
+    margin-right: 40px;
+  }
 }
+
 .img {
   display: block;
-  width: 300px;
-  height: 450px;
-  border-radius: 20px;
-  object-fit: fill;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  box-shadow: var(--shadow-card);
 }
+
 .title {
   margin-right: 15px;
-  font-size: 26px;
-  font-weight: 600;
+  font-size: clamp(1.25rem, 4vw, 1.625rem);
+  font-weight: 700;
+  color: var(--color-text);
 }
+
 .tag {
-  margin-top: 40px;
-  margin-bottom: 30px;
-  font-size: 22px;
+  margin-top: 16px;
+  margin-bottom: 20px;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
   font-weight: 500;
+  color: var(--color-text-muted);
+  font-style: italic;
 }
+
 .overview {
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin: 16px 0 20px;
+  line-height: 1.6;
 }
+
 .seasons {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 16px 0;
 }
+
 .textWrapper {
+  flex: 1;
+  min-width: 0;
+
   p {
-    color: white;
+    color: var(--color-text-muted);
+    margin-bottom: 8px;
+    font-size: clamp(0.875rem, 2vw, 1rem);
   }
+
   a {
-    color: white;
+    color: var(--color-accent);
     text-decoration: none;
+    word-break: break-all;
+    font-size: 0.875rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }

@@ -1,44 +1,82 @@
+@use '../../styles/breakpoints' as *;
+
 .serviceInfo {
-  padding: 20px 35px;
-  margin-bottom: 40px;
+  padding: clamp(16px, 3vw, 24px) var(--container-padding);
+  margin-bottom: clamp(24px, 4vw, 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include sm {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }
+
 .serviceInfoText {
   display: flex;
-  margin-top: 20px;
-  align-items: center;
-}
-.imageWrapper {
-  border-radius: 20px;
-  width: 200px;
-  height: 150px;
-  background-color: white;
-  padding: 0 20px;
-}
-.img {
-  display: block;
-  width: 200px;
-  height: 150px;
-  object-fit: contain;
-}
-.serviceInfoText {
-  p {
-    margin-right: 20px;
-    color: white;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+  align-items: flex-start;
+
+  @include sm {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 20px;
   }
+
+  p {
+    margin-right: 0;
+    color: var(--color-text-muted);
+    font-size: clamp(0.875rem, 2vw, 1rem);
+  }
+
   a {
     text-decoration: none;
-    color: white;
+    color: var(--color-accent);
+    word-break: break-all;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
+
+.imageWrapper {
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  background-color: white;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .sub {
-  margin-left: 20px;
-  padding: 5px 20px;
-  font-size: 18px;
+  padding: 10px 24px;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  font-weight: 600;
   border: none;
-  transition: all 0.5s;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent);
+  color: white;
+  transition: background var(--transition), transform var(--transition);
+
   &:hover {
-    transform: scale(1.05);
+    background: var(--color-accent-hover);
+    transform: scale(1.03);
   }
 }

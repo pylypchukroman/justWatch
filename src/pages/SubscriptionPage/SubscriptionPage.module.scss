@@ -1,8 +1,15 @@
+@use '../../styles/breakpoints' as *;
+
 .wrapper {
-  padding: 10px 35px 40px 35px;
-  background-color: black;
+  padding: clamp(16px, 3vw, 24px) var(--container-padding) clamp(32px, 5vw, 48px);
+  background-color: var(--color-bg);
+  min-height: calc(100vh - var(--nav-height));
+
   h2 {
-    margin: 30px 0;
-    color: white;
+    margin: clamp(20px, 4vw, 32px) 0;
+    color: var(--color-text);
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
   }
 }

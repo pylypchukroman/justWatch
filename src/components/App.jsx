@@ -1,6 +1,8 @@
 import { NetworkContext } from 'Context/NetworkContext';
 import { lazy, Suspense, useState } from 'react';
 import { Redirect, Route, Switch } from 'react-router';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Networks from 'Utils/Networks';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
@@ -24,7 +26,16 @@ export const App = () => {
 
   return (
     <div>
-      <Suspense fallback={<h1>LOADING...</h1>}>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        theme="dark"
+      />
+      <Suspense fallback={<div className="app-loading">Loading…</div>}>
         <Switch>
           <NetworkContext.Provider value={{ networks, setNetworks }}>
             <Route exact path="/">

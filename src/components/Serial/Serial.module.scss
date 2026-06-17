@@ -1,10 +1,14 @@
+@use '../../styles/breakpoints' as *;
+
 .wrapper {
-  background-color: black;
+  background-color: var(--color-bg);
+  min-height: calc(100vh - var(--nav-height));
 }
+
 .infoWrapper {
-  padding: 35px;
+  padding: clamp(16px, 3vw, 24px) var(--container-padding);
 }
 
 .seasonsList {
-  padding: 20px 40px;
+  padding: clamp(16px, 3vw, 24px) var(--container-padding);
 }

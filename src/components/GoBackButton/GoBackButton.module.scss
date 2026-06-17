@@ -1,8 +1,21 @@
+@use '../../styles/breakpoints' as *;
+
 .button {
-  margin: 20px 35px;
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: none;
-  font-size: 14px;
-  font-weight: 500;
+  margin: clamp(16px, 3vw, 24px) var(--container-padding);
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition),
+    transform var(--transition);
+
+  &:hover {
+    background: var(--color-surface-hover);
+    border-color: var(--color-accent);
+    transform: translateX(-2px);
+  }
 }

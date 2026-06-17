@@ -1,15 +1,20 @@
 import EpisodesList from 'components/EpisodesList/EpisodesList';
 import GoBackButton from 'components/GoBackButton/GoBackButton';
 import Navigation from 'components/Navigation/Navigation';
-import { useEffect } from 'react';
+import { NetworkContext } from 'Context/NetworkContext';
+import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { useState } from 'react';
 import { getSeasonInfo } from 'Utils/MovieAPI';
 import styles from './Season.module.scss';
 
 const Season = () => {
-  const { showId, seasonId } = useParams();
+  const { serviceId, showId, seasonId } = useParams();
+  const { networks } = useContext(NetworkContext);
   const [episodes, setEpisodes] = useState(null);
+
+  const streamingService = networks.find(
+    network => network.id === Number(serviceId)
+  );
 
   useEffect(() => {
     getSeasonInfo(showId, seasonId).then(data => setEpisodes(data.episodes));
@@ -22,7 +27,10 @@ const Season = () => {
         <GoBackButton />
         <h2 className={styles.title}>List of episodes of Season {seasonId}</h2>
         <div className={styles.episodesWrapper}>
-          <EpisodesList episodes={episodes} />
+          <EpisodesList
+            episodes={episodes}
+            streamingService={streamingService}
+          />
         </div>
       </div>
     </>
