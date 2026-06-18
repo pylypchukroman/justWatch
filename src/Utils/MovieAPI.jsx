@@ -75,7 +75,7 @@ async function getPopularToday() {
 
 async function getMostViewedShowsOfGenre() {
   const response = axios
-    .get(`/3/discover/movie?&sort_by=popularity.desc&with_genres=35`)
+    .get(`/3/discover/tv?&sort_by=popularity.desc&with_genres=35`)
     .then(res => res.data.results)
     .catch(error => {
       throw error;

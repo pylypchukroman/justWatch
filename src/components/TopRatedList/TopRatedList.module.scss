@@ -37,7 +37,18 @@
   &:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-card);
+
+    .title {
+      color: var(--color-accent);
+    }
   }
+}
+
+.link {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
 }
 
 .imageWrapper {
@@ -55,6 +66,7 @@
 
 .info {
   padding: 10px 12px 14px;
+  text-align: center;
 
   p {
     margin-bottom: 4px;
@@ -65,17 +77,12 @@
 }
 
 .title {
+  margin: 0 0 4px;
   font-weight: 600;
   color: var(--color-text);
-  text-decoration: none;
   font-size: 0.875rem;
-  display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   transition: color var(--transition);
-
-  &:hover {
-    color: var(--color-accent);
-  }
 }
