@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router';
 import { getServiceInfo } from 'Utils/MovieAPI';
 import styles from './StreamingService.module.scss';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { toast } from 'react-toastify';
 import { NetworkContext } from 'Context/NetworkContext';
 import { getSeriesList } from 'Utils/MovieAPI';
 import PaginationButtons from 'components/PaginationButtons/PaginationButtons';
@@ -27,7 +27,7 @@ const StreamingService = () => {
         network.id === id ? { ...network, sub: true } : network
       )
     );
-    Notify.success(`You subscribe to ${networkName}!`);
+    toast.success(`You subscribe to ${networkName}!`);
     history.push(`/subscription/${id}`);
   };
   //

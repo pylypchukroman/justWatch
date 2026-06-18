@@ -1,5 +1,5 @@
 import styles from './ShowsList.module.scss';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { toast } from 'react-toastify';
 import noImageLoad from '../../images/no-image-min.png';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -10,7 +10,7 @@ const ShowsList = ({ shows, networkName }) => {
     event.currentTarget.src = noImageLoad;
   };
   const getInfo = () => {
-    Notify.warning(`Please subscribe to ${networkName} to watch this serials`);
+    toast.warning(`Please subscribe to ${networkName} to watch this serials`);
   };
   return (
     <ul className={styles.list}>

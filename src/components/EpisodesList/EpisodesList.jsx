@@ -1,6 +1,5 @@
 import styles from './EpisodesList.module.scss';
 import noImageLoad from '../../images/no-image-min.png';
-import { useEffect, useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import PropTypes from 'prop-types';
@@ -10,16 +9,8 @@ const EpisodesList = ({ episodes, streamingService }) => {
   const imageOnErrorHandler = event => {
     event.currentTarget.src = noImageLoad;
   };
-  const [watches, setWatches] = useState(1);
-
-  useEffect(() => {
-    const number = Math.floor(Math.random() * 100);
-    setWatches(number);
-  }, []);
 
   const onWatchBtnClick = () => {
-    setWatches(prev => prev + 1);
-
     if (streamingService?.homepage) {
       toast.info(
         <>
@@ -61,7 +52,6 @@ const EpisodesList = ({ episodes, streamingService }) => {
               <p>
                 Vote: {episod.vote_average} ({episod.vote_count} votes)
               </p>
-              <p>Watches: {watches}</p>
               <button
                 type="button"
                 className={styles.watchBtn}

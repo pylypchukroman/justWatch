@@ -2,7 +2,7 @@ import Navigation from 'components/Navigation/Navigation';
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { getServiceInfo } from 'Utils/MovieAPI';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { toast } from 'react-toastify';
 import { NetworkContext } from 'Context/NetworkContext';
 import styles from './SubscribeStrimingService.module.scss';
 import { getSeriesList } from 'Utils/MovieAPI';
@@ -25,7 +25,7 @@ const SubscribeStrimingService = () => {
         network.id === id ? { ...network, sub: true } : network
       )
     );
-    Notify.success(`You subscribe to ${networkName}!`);
+    toast.success(`You subscribe to ${networkName}!`);
   };
 
   const onLoadMore = () => {
