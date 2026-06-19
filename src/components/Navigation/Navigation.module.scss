@@ -6,13 +6,17 @@
   z-index: 100;
   padding: 0 var(--container-padding);
   height: var(--nav-height);
-  background: rgba(10, 10, 10, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(10, 10, 10, 0.97);
   border-bottom: 1px solid var(--color-border);
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @include md {
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
 }
 
 .logo {
@@ -74,21 +78,25 @@
     position: fixed;
     inset: 0;
     top: var(--nav-height);
+    z-index: 99;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
     padding: 24px var(--container-padding);
     background: rgba(10, 10, 10, 0.97);
-    backdrop-filter: blur(16px);
     transform: translateX(100%);
     transition: transform var(--transition);
     overflow-y: auto;
+    pointer-events: none;
+    visibility: hidden;
   }
 }
 
 .linksOpen {
   @include below-md {
     transform: translateX(0);
+    pointer-events: auto;
+    visibility: visible;
   }
 }
 
