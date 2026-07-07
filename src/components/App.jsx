@@ -36,8 +36,8 @@ export const App = () => {
         theme="dark"
       />
       <Suspense fallback={<div className="app-loading">Loading…</div>}>
-        <Switch>
-          <NetworkContext.Provider value={{ networks, setNetworks }}>
+        <NetworkContext.Provider value={{ networks, setNetworks }}>
+          <Switch>
             <Route exact path="/">
               <HomePage />
             </Route>
@@ -59,9 +59,9 @@ export const App = () => {
             <Route path="/subscription/:serviceId/:showId/:seasonId">
               <Season />
             </Route>
-          </NetworkContext.Provider>
-          <Redirect to="/" />
-        </Switch>
+            <Redirect to="/" />
+          </Switch>
+        </NetworkContext.Provider>
       </Suspense>
     </div>
   );
