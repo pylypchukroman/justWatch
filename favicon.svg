@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#4A7CFF"/>
+      <stop offset="50%" stop-color="#A64DFF"/>
+      <stop offset="100%" stop-color="#FF4DA6"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="6" fill="#0a0a0a"/>
+  <path
+    d="M8 7.5C8 6.12 9.45 5.18 10.65 5.82L23.15 12.82C24.35 13.46 24.35 15.14 23.15 15.78L10.65 22.78C9.45 23.42 8 22.48 8 21.1V7.5Z"
+    fill="url(#g)"
+  />
+  <text
+    x="11.5"
+    y="19.5"
+    font-family="Inter, Arial, sans-serif"
+    font-size="8"
+    font-weight="700"
+    fill="#ffffff"
+  >BD</text>
+</svg>
